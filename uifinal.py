@@ -34,31 +34,31 @@ class Janela:
         self.frame.pack()
         self.frame2=Frame(toplevel)
         self.frame2.pack()
-        self.titulo=Label(self.frame,text='Interface IA',
-                          font=('Verdana','22','bold'))
-        self.titulo.pack(pady = 20)
+        self.titulo=Label(self.frame,text='Que tal tentarmos Classificar a Imagem do seu bichinho?',
+                          font=('Verdana','18'))
+        self.titulo.pack(pady = 30)
         self.msg=Label(self.frame,
-                        text = 'Este programa treina uma CNN  para reconhecimento de gatos e cachorros',
-                        font=('Verdana','16'))
+                        text = 'Nós usamos uma CNN para reconhecimento de gatos e cachorros',
+                        font=('Arial','12'))
         self.infor=Label(self.frame,
-                        text = 'O resultado da acurácia aparecerá aqui.',
-                        font=('Verdana','14','bold'))
+                        text = 'O resultado aparecerá aqui.',
+                        font=('Arial','10'))
         self.msg.focus_force()
         self.msg.pack(pady = 20)
         self.infor.pack(pady = 150)
         # Definindo o botão 1
-        self.b01=Button(self.frame2,text='Abrir pasta de treino')
+        self.b01=Button(self.frame2,text='Abrir pasta de treino...')
         self.b01['padx'],self.b01['pady'] = 10, 5
-        self.b01['bg']='deepskyblue'
+        self.b01['bg']='grey'
         self.b01.bind("<Return>",self.keypress01)
         self.b01.bind("<Any-Button>",self.button01)
         self.b01.bind("<FocusOut>",self.fout01)
         self.b01['relief']=RIDGE
         self.b01.pack(padx = 20, ipadx = 30, ipady = 30, side=LEFT)
         # Definindo o botão 2
-        self.b02=Button(self.frame2,text='Abrir pasta de teste')
+        self.b02=Button(self.frame2,text='Abrir pasta de teste...')
         self.b02['padx'],self.b02['pady'] = 10, 5
-        self.b02['bg']='deepskyblue'
+        self.b02['bg']='grey'
         self.b02.bind("<Return>",self.keypress02)
         self.b02.bind("<Any-Button>",self.button02)
         self.b02.bind("<FocusIn>",self.fin02)
@@ -66,16 +66,16 @@ class Janela:
         self.b02['relief']=RIDGE
         self.b02.pack(padx = 20, ipadx = 30, ipady = 30, side=LEFT)
         # Definindo o botão 3
-        self.b03=Button(self.frame2,text='Treinar')
+        self.b03=Button(self.frame2,text='Treinar!')
         self.b03['padx'],self.b03['pady'] = 10, 5
-        self.b03['bg']='deepskyblue'
+        self.b03['bg']='grey'
         self.b03.bind("<Return>",self.keypress03)
         self.b03.bind("<Any-Button>",self.button03)
         self.b03.bind("<FocusIn>",self.fin03)
         self.b03.bind("<FocusOut>",self.fout03)
         self.b03['relief']=RIDGE
         self.b03.pack(padx = 20, ipadx = 30, ipady = 30, side=LEFT)
-        self.b03.config(bg = '#fc8888')
+        
 
 
 
@@ -103,7 +103,7 @@ class Janela:
         global training_set
         global test_set
 
-        self.infor.config(text='Treinando... Por favor, aguarde!', foreground = 'red')
+        self.infor.config(text='estamos treinando... Por favor, aguarde!', foreground = 'red')
 
         if (training_set != '/' and test_set != '/'):
 
@@ -153,11 +153,11 @@ class Janela:
             self.msg.config(text=classificador.metrics)
 
         else:
-            self.infor.config(text='Selecione ambas as pastas de treino e teste.', foreground = 'red')
+            self.infor.config(text='por favor selecione as pastas de treino e teste.', foreground = 'red')
 
 
 raiz=Tk()
-raiz.title("IA classificador de imagens")
+raiz.title("Classificador de imagens")
 
 
 window_height = 600
